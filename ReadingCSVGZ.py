@@ -11,18 +11,14 @@ from s3fs.core import S3FileSystem
 import time
 import csv
 
-aws_access_key_id=''
-aws_secret_access_key=''
-os.environ["AWS_ACCESS_KEY_ID"] = aws_secret_access_key
-os.environ["AWS_SECRET_ACCESS_KEY"] = aws_secret_access_key
+os.environ["AWS_ACCESS_KEY_ID"] = ""
+os.environ["AWS_SECRET_ACCESS_KEY"] = ""
 
 region_name = 'ap-southeast-1'
 my_stream_name = 'ESCM_EEL-ESCMOWNER-SC_HD'
 filepath ="s3n://esq-dms-staging-prd/ESCM_EEL/ESCMOWNER/SC_HD/20180828-045045550.csv.gz"
 
-kinesis_client = boto3.client('kinesis',aws_access_key_id=aws_access_key_id,
-                              aws_secret_access_key=aws_secret_access_key,
-                              region_name=region_name)
+kinesis_client = boto3.client('kinesis',region_name=region_name)
 
 # s3_client = boto3.client('s3',aws_access_key_id=aws_access_key_id,
 #                          aws_secret_access_key=aws_secret_access_key,
